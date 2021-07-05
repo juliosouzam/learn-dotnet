@@ -1,0 +1,27 @@
+@model IEnumerable<User>
+
+<h2>Users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">@Html.DisplayNameFor(x => x.Id)</th>
+      <th scope="col">@Html.DisplayNameFor(x => x.Name)</th>
+      <th scope="col">@Html.DisplayNameFor(x => x.Email)</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var user in Model)
+    {
+      <tr>
+        <td>@Html.DisplayFor(x => user.Id)</td>
+        <td>@Html.DisplayFor(x => user.Name)</td>
+        <td>@Html.DisplayFor(x => user.Email)</td>
+        <td>
+          <a asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
